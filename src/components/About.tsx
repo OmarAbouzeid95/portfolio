@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
-// import aboutImg from "../assets/about-photo-min.png";
+import { useEffect, useRef, useContext } from "react";
+import { RefContext } from "../contexts/ref";
 import Section from "./Section";
 import aboutImg from "../assets/IMG_8216.jpg";
 
 const About = () => {
   const pic: React.LegacyRef<HTMLDivElement> = useRef(null);
+  const { aboutRef } = useContext(RefContext);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,7 +28,7 @@ const About = () => {
   }, [pic]);
 
   return (
-    <Section title="About me" id="about_me">
+    <Section title="About me" id="about_me" ref={aboutRef} tabIndex={-1}>
       <div
         ref={pic}
         className="mx-auto w-72 h-72 mb-12 transition-all duration-[1250ms] ease-cubic-bezier infinite relative overflow-hidden md:float-right md:ml-8 md:mb-8">
