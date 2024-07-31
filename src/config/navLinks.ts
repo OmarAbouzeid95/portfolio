@@ -1,7 +1,7 @@
 export const navLinks: { name: string; href: string }[] = [
   {
-    name: "Link1",
-    href: "#",
+    name: "About",
+    href: "#about_me",
   },
   {
     name: "Link1",

@@ -27,7 +27,7 @@ const About = () => {
   }, [pic]);
 
   return (
-    <Section title="About me">
+    <Section title="About me" id="about_me">
       <div
         ref={pic}
         className="mx-auto w-72 h-72 mb-12 transition-all duration-[1250ms] ease-cubic-bezier infinite relative overflow-hidden md:float-right md:ml-8 md:mb-8">
@@ -39,7 +39,7 @@ const About = () => {
           />
         </div>
       </div>
-      <p className="md:text-lg">
+      <p className="px-4 md:px-0 md:text-lg">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, maxime!
         Ipsa ullam distinctio, architecto reiciendis maiores natus rerum
         expedita vitae facere adipisci pariatur blanditiis voluptates nulla

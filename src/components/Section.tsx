@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
-const Section = ({
-  title,
-  children,
-}: {
+type Props = {
   title: string;
   children: React.ReactNode;
-}) => {
+  [key: string]: any;
+};
+
+const Section: React.FC<Props> = ({ title, children, ...rest }) => {
   return (
-    <section className="p-6 py-6 max-w-4xl mx-auto md:p-16">
+    <section className="p-6 my-24 max-w-4xl mx-auto md:p-16" {...rest}>
       <motion.h2
         className="font-bold text-5xl text-center mb-14 md:mb-24 md:text-6xl md:text-left"
         initial={{ opacity: 0, y: 30 }}
