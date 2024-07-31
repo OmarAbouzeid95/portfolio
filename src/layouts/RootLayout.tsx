@@ -1,11 +1,20 @@
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HamburgerIcon from "../components/HamburgerIcon";
 import OverlayNav from "../components/OverlayNav";
 import Navbar from "../components/Navbar";
+import clsx from "clsx";
 
 const RootLayout = () => {
   const [showOverlay, setShowOverlay] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (showOverlay) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [showOverlay]);
 
   return (
     <section className="bg-dark">
@@ -13,15 +22,16 @@ const RootLayout = () => {
         <HamburgerIcon setShowOverlay={setShowOverlay} />
         <Navbar />
       </header>
-      <main className="relative min-h-screen text-white">
+      <main
+        className={clsx("relative min-h-screen text-white overflow-hidden")}>
         {showOverlay && (
-          <div className="fixed inset-0 z-30 bg-black bg-opacity-20 animate-fadeIn">
-            <div className="absolute inset-0 backdrop-blur-xl animate-fadeIn">
-              <OverlayNav />
-            </div>
+          <div className="fixed inset-0 z-30 animate-fadeIn bg-black bg-opacity-20">
+            <OverlayNav />
           </div>
         )}
-        <Outlet />
+        <section className={clsx(showOverlay && "blur-lg animate-fadeIn")}>
+          <Outlet />
+        </section>
       </main>
     </section>
   );

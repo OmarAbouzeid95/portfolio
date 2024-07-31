@@ -6,6 +6,9 @@ export default {
       backgroundColor: {
         dark: "#4E4E4E",
       },
+      backgroundImage: {
+        "about-pic": "url('src/assets/about-photo-min.png')",
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },
