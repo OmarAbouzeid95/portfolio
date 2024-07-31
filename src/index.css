@@ -10,6 +10,7 @@ body,
 html {
   margin: 0;
   background-color: "#4e4e4e";
+  font-family: "Poppins", sans-serif;
 }
 
 /* Hamburger icon */
